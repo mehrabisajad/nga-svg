@@ -41,12 +41,81 @@ export class SvgService {
   }
 
   createSVGElementFromString(str?: string): SVGElement {
-    const div = this._document.createElement('div');
-    div.innerHTML = str;
-    const svg: SVGElement | undefined = div.querySelector('svg');
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(str ?? '', 'image/svg+xml');
+    const svg: SVGSVGElement | null = doc.querySelector('svg');
     if (!svg) {
       throw SVGTagNotFoundError;
     }
+
+    const allowedTags = this.getAllowedTags();
+    const elementsToRemove = [];
+    const elementsByTagName = svg.getElementsByTagName('*');
+    for (let i = 0; i < elementsByTagName.length; i++) {
+      const element = elementsByTagName.item(i);
+      if (element) {
+        if (!allowedTags.includes(element.tagName)) {
+          elementsToRemove.push(element);
+        }
+      }
+    }
+
+    for (const elementToRemove of elementsToRemove) {
+      elementToRemove.parentNode?.removeChild(elementToRemove);
+    }
+
     return svg;
+  }
+
+  getAllowedTags(): string[] {
+    return [
+      'svg',
+      'a',
+      'circle',
+      'clipPath',
+      'defs',
+      'desc',
+      'ellipse',
+      'feBlend',
+      'feColorMatrix',
+      'feComponentTransfer',
+      'feComposite',
+      'feConvolveMatrix',
+      'feDiffuseLighting',
+      'feDisplacementMap',
+      'feDistantLight',
+      'feFlood',
+      'feGaussianBlur',
+      'feImage',
+      'feMerge',
+      'feMergeNode',
+      'feMorphology',
+      'feOffset',
+      'fePointLight',
+      'feSpecularLighting',
+      'feSpotLight',
+      'feTile',
+      'filter',
+      'foreignObject',
+      'g',
+      'image',
+      'line',
+      'marker',
+      'mask',
+      'metadata',
+      'path',
+      'pattern',
+      'polygon',
+      'polyline',
+      'rect',
+      'stop',
+      'style',
+      'switch',
+      'symbol',
+      'text',
+      'title',
+      'tspan',
+      'view',
+    ];
   }
 }
