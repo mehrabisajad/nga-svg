@@ -1,0 +1,32 @@
+{
+  "name": "nga-svg",
+  "version": "16.0.0",
+  "author": "Sajad Mehrabi",
+  "description": "Angular svg viewer",
+  "license": "MIT",
+  "keywords": [
+    "ngx",
+    "ng",
+    "nga",
+    "avan",
+    "angular",
+    "svg",
+    "svg viewer",
+    "library",
+    "angular svg viewer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mehrabisajad/nga-svg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mehrabisajad/nga-svg/issues"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/core": "^16.0.0",
+    "@angular/common": "^16.0.0"
+  }
+}

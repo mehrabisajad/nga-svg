@@ -1,0 +1,62 @@
+{
+  "name": "nga-svg",
+  "version": "16.0.0",
+  "author": "Sajad Mehrabi",
+  "description": "Angular svg viewer",
+  "license": "MIT",
+  "scripts": {
+    "build": "ng build:lib",
+    "build:lib": "ng build nga-svg",
+    "deploy": "npm run build:lib && npm publish --access=public dist",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "ng": "ng",
+    "prepare": "husky install",
+    "prettier:check": "prettier --check \"{,src/**/}*.{md,json,yml,html,cjs,mjs,js,ts,tsx,css,scss}\"",
+    "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,cjs,mjs,js,ts,tsx,css,scss}\"",
+    "start": "ng serve",
+    "test": "ng test"
+  },
+  "keywords": [
+    "ngx",
+    "ng",
+    "nga",
+    "avan",
+    "angular",
+    "svg",
+    "svg viewer",
+    "library",
+    "angular svg viewer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mehrabisajad/nga-svg.git"
+  },
+  "dependencies": {
+    "@angular/core": "^16.0.0",
+    "@angular/common": "^16.0.0",
+    "rxjs": "^7.4.0",
+    "zone.js": "~0.13.x",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.0",
+    "@angular-eslint/eslint-plugin": "^16.3.1",
+    "@angular/cli": "^16.2.10",
+    "@angular/compiler": "^16.2.12",
+    "@angular/compiler-cli": "^16.2.12",
+    "@types/jasmine": "^5.1.2",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.3",
+    "jasmine-core": "^5.1.0",
+    "lint-staged": "^14.0.0",
+    "ng-packagr": "^16.2.3",
+    "prettier": "^3.1.0",
+    "prettier-plugin-packagejson": "^2.4.6",
+    "typescript": "^4.9.3"
+  }
+}
