@@ -33,7 +33,7 @@ export class SvgDirective implements OnChanges {
 
   protected _setSVGElement(svg: SVGElement): void {
     this._clearSVGElement();
-    this._renderer.appendChild(this._elementRef.nativeElement, svg);
+    this._elementRef.nativeElement.innerHTML = svg.outerHTML;
   }
 
   protected _clearSVGElement(): void {
